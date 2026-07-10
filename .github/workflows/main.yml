@@ -1,0 +1,12 @@
+name: Go Build Check
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: |
+          go mod init gocore-ipc-resolver
+          go mod tidy
+          go build -v .
